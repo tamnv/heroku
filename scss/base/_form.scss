@@ -1,0 +1,269 @@
+button,
+input[type='submit'] {
+  @extend .btn;
+}
+
+%form-text,
+.form-text {
+  @include SourceSansPro;
+  appearance: none;
+  background-color: $white;
+  border: rem(1px) solid $text-color;
+  box-shadow: inherit;
+  box-sizing: border-box;
+  color: $text-color;
+  font-size: rem(16px);
+  height: rem(55px);
+  outline: 0;
+  border-radius: 0;
+  padding: rem(10px 25px);
+  width: 100%;
+
+  &::-ms-clear {
+    display: none;
+  }
+
+  &::-webkit-input-placeholder {
+    color: $cadet-blue;
+    opacity: 1;
+  }
+
+  &::-moz-placeholder {
+    color: $cadet-blue;
+    opacity: 1;
+  }
+
+  &:-ms-input-placeholder {
+    color: $cadet-blue;
+    opacity: 1;
+  }
+
+  &:-moz-placeholder {
+    color: $cadet-blue;
+    opacity: 1;
+  }
+
+  &.focused,
+  &:focus {
+    border-color: $text-color;
+    color: $text-color;
+  }
+
+  &.error {
+    border-color: $error-color;
+    color: $error-color;
+
+    &::-webkit-input-placeholder {
+      color: $error-color;
+    }
+
+    &::-moz-placeholder {
+      color: $error-color;
+    }
+
+    &:-ms-input-placeholder {
+      color: $error-color;
+    }
+
+    &:-moz-placeholder {
+      color: $error-color;
+    }
+  }
+
+  &.success {
+    border-color: $positive-color;
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+    border-color: $cadet-blue;
+    color: $cadet-blue;
+  }
+}
+
+input[type='tel'],
+.form-url,
+.form-email {
+  @extend %form-text;
+}
+
+.form-textarea {
+  @extend %form-text;
+  font-size: rem(18px);
+  height: auto;
+  min-height: rem(200px);
+  padding: rem(15px 25px);
+}
+
+.form-item,
+.form-actions {
+  margin:rem(0 0 15px);
+
+  &.form-type-checkbox,
+  &.form-type-radio {
+    margin-bottom: rem(8px);
+  }
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: rem(3px);
+  display: block;
+}
+
+input[type='checkbox'],
+input[type='radio'] {
+  @extend %invisible;
+
+  + label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    padding: rem(0 0 0 30px);
+    font-weight: 400;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: rem(3px);
+      width: rem(16px);
+      height: rem(16px);
+      border: rem(2px) solid $link-brand-primary;
+    }
+
+    &:after {
+      opacity: 0;
+      position: absolute;
+      transition: opacity .3s ease;
+    }
+  }
+
+  &:active,
+  &:focus {
+    & + label {
+      &:before {
+        border-color: $text-color;
+      }
+    }
+  }
+
+  &:checked {
+    & + label {
+      &:before {
+        border-color: $link-brand-primary;
+      }
+
+      &:after {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+input[type='radio'] {
+  + label {
+    &:before {
+      border-radius: 100%;
+    }
+
+    &:after {
+      content: '';
+      background: $link-brand-primary;
+      border-radius: 100%;
+      height: rem(12px);
+      left: rem(4px);
+      top: rem(7px);
+      width: rem(12px);
+    }
+  }
+}
+
+input[type='checkbox'] {
+  + label {
+    &:before {
+      border-radius: rem(2px);
+    }
+
+    &:after {
+      @extend %icons;
+      @extend .icon-check:before;
+      color: $white;
+      font-size: rem(11px);
+      left: 0;
+      top: rem(3px);
+      text-align: center;
+      width: rem(20px);
+      height: rem(20px);
+      line-height: rem(20px);
+      background-color: $link-brand-primary;
+    }
+  }
+}
+
+.select-arrow-icon {
+  display: none;
+}
+
+.touchevents {
+  .form-type-select {
+    .select-arrow-icon {
+      color: $link-brand-primary;
+      margin-top: rem(18px);
+      position: absolute;
+      right: rem(20px);
+      text-align: left;
+      text-indent: -999em;
+      width: 0;
+      height: 0;
+      z-index: 3;
+
+      &:before {
+        @extend %icons;
+        @extend .icon-triangle-down:before;
+        display: block;
+        float: left;
+        font-size: rem(22px);
+        text-align: center;
+        text-indent: 0;
+        height: rem(22px);
+        line-height: rem(22px);
+        width: rem(22px);
+        pointer-events: none;
+        margin-left: rem(-22px);
+      }
+    }
+
+    @include susy-media(mobileOnly) {
+      position: relative;
+
+      .select-arrow-icon {
+        display: block;
+      }
+
+      select {
+        @include SourceSansPro;
+        appearance: none;
+        font-size: rem(16px);
+        border: rem(1px) solid $text-color;
+        background: $white;
+        height: rem(55px);
+        padding: rem(15px 40px 15px 25px);
+        width: 100%;
+        box-sizing: border-box;
+        border-radius: 0;
+        color: $cadet-blue;
+
+        &.focused,
+        &:active,
+        &:focus {
+          border-color: $text-color;
+          color: $text-color;
+          background-color: $white;
+          outline: none;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,218 @@
+// Custom chosen
+
+.chosen-container {
+  position: relative;
+  font-size: rem(16px);
+  display: block;
+
+  .chosen-results {
+    li {
+      .is-firefox-mac & {
+        padding-right: rem(20px);
+      }
+
+      &.highlighted {
+        background-color: $white;
+        color: $link-brand-primary;
+      }
+    }
+  }
+}
+
+.chosen-single {
+  @include SourceSansPro;
+  background: $white;
+  border: rem(1px) solid $text-color;
+  color: $cadet-blue !important;
+  cursor: pointer;
+  display: block;
+  outline: 0;
+  overflow: hidden;
+  position: relative;
+  white-space: nowrap;
+
+  &:before {
+    @extend %icons;
+    @extend .icon-triangle-down:before;
+    bottom: rem(16px);
+    color: $link-brand-primary;
+    font-size: rem(14px);
+    position: absolute;
+    right: rem(20px);
+    z-index: 1;
+    width: rem(22px);
+    line-height: rem(22px);
+    height: rem(22px);
+    font-size: rem(22px);
+    text-align: center;
+  }
+
+  span {
+    display: block;
+    margin-right: rem(34px);
+    overflow: hidden;
+    padding: rem(15px 18px 15px 25px);
+    height: rem(55px);
+    text-overflow: ellipsis;
+  }
+
+  div {
+    display: none;
+  }
+
+  .chosen-with-drop & {
+    color: $text-color;
+  }
+}
+
+.chosen-search {
+  margin-bottom: rem(15px);
+
+  input {
+    @extend %form-text;
+    height: auto;
+    padding: rem(7px 9px);
+
+    .touchevents .chosen-container-single-nosearch & {
+      display: none;
+    }
+  }
+
+  .chosen-container-single-nosearch & {
+    position: absolute;
+    clip: rect(1px, 1px, 1px, 1px);
+    opacity: 0;
+  }
+}
+
+.chosen-results {
+  color: $text-color;
+  max-height: rem(240px);
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  li {
+    cursor: pointer;
+    display: block;
+    line-height: 1.1;
+    margin-bottom: rem(13px);
+  }
+
+  .result-selected {
+    color: $link-brand-primary;
+  }
+}
+
+.chosen-drop {
+  background: $white;
+  border-color: $text-color;
+  border-style: solid;
+  border-width: rem(0 1px 1px 1px);
+  left: -999em;
+  width: 100%;
+  display: block;
+  margin-top: rem(-2px);
+  padding: rem(2px 25px 14px 40px);
+  position: absolute;
+  right: 0;
+  z-index: 3;
+
+  .chosen-with-drop & {
+    left: 0;
+  }
+}
+
+.chosen-container-active {
+  .chosen-single,
+  .chosen-drop {
+    border-color: $text-color;
+  }
+
+  .chosen-single {
+    color: $text-color !important;
+  }
+}
+
+// Custom select-multiple
+.select-multiple {
+  position: relative;
+
+  label {
+    @extend .chosen-single;
+    font-size: rem(16px);
+    margin: 0;
+    overflow: hidden;
+    padding: rem(14px 18px);
+    position: relative;
+  }
+
+  select {
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+
+    .touchevents & {
+      pointer-events: none;
+    }
+  }
+
+  .chosen-container {
+    background: $white;
+    border-color: $text-color;
+    border-style: solid;
+    border-width: rem(0 1px 1px 1px);
+    left: 0;
+    margin-top: rem(-2px);
+    position: absolute;
+    right: 0;
+    transform: translateX(-999em);
+    width: 100%;
+    z-index: 3;
+
+    .chosen-drop {
+      border: 0;
+      position: static;
+    }
+  }
+
+  .search-choice {
+    display: none;
+  }
+
+  .chosen-choices {
+    padding: rem(2px 18px 15px);
+
+    .search-field {
+      input {
+        @extend %form-text;
+        height: auto;
+        padding: rem(7px 9px);
+        width: 100% !important;
+      }
+    }
+  }
+
+  &.show-select-multiple {
+    label {
+      border-color: $text-color;
+    }
+
+    select {
+      opacity: 1;
+      pointer-events: auto;
+      z-index: 10;
+
+      option {
+        cursor: pointer;
+        display: block;
+        line-height: 1.1;
+        padding-bottom: rem(15px);
+      }
+    }
+
+    .chosen-container {
+      transform: inherit;
+    }
+  }
+}

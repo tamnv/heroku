@@ -1,0 +1,40 @@
+// STYLES-MAIN.SCSS
+
+// Please centralize all includes here.
+
+// WARNING: DO NOT EDIT /assets/css/styles.css file manually, this should be generated only by compiler based on this file.
+
+
+//Required imports
+@import '../vendor/susy/susy';
+
+//Base
+@import 'base/variables';
+@import 'base/colors';
+
+//Helpers
+@import 'helpers/extends';
+@import 'helpers/functions';
+@import 'helpers/mixins';
+
+// Reset
+@import 'base/reset';
+
+@import 'base/fonts';
+@import 'base/grid';
+@import 'helpers/icons';
+@import 'base/typography';
+@import 'base/btn';
+@import 'base/form';
+@import 'base/table';
+@import 'helpers/helpers';
+
+// Vendors
+@import 'vendors/chosen';
+
+// Layouts
+@import 'layouts/layout';
+@import 'layouts/navigation';
+
+// Pages
+// @import 'pages/index';
