@@ -1,3 +1,4 @@
+# Install heroku
 sudo apt-get update
 sudo apt-get -y install software-properties-common
 sudo add-apt-repository "deb https://cli-assets.heroku.com/branches/stable/apt ./"
@@ -6,7 +7,7 @@ sudo apt-get install apt-transport-https
 sudo apt-get update
 sudo apt-get install heroku
 
-echo "Login heroku"
+# Login heroku
 cat > ~/.netrc << EOF
 machine api.heroku.com
   login $HEROKU_EMAIL

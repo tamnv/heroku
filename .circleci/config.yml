@@ -20,13 +20,13 @@ jobs:
       - checkout
 
       - run:
-          name: Set up global
+          name: Global setup
           command: ./.circleci/setup-global.sh
 
       - run:
-          name: build pattern lab
+          name: Build patternlab
           command: ./.circleci/build-styguide.sh
 
       - run:
-          name: deploy to Heroku
+          name: Deploy to Heroku
           command: ./.circleci/deploy-to-heroku.sh
