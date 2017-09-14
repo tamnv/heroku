@@ -3,13 +3,15 @@ git config --global user.email "$HEROKU_EMAIL"
 git config --global user.name "Circle CI"
 
 echo "This is test"
-echo "machine api.heroku.com
+
+cat ~/.netrc << EOF
+        machine api.heroku.com
           login $HEROKU_EMAIL
           password $HEROKU_TOKEN
         machine git.heroku.com
           login $HEROKU_EMAIL
-          password $HEROKU_TOKEN" >> ~/.netrc
-echo "hello" >> test.txt
+          password $HEROKU_TOKEN
+        EOF
 # chmod 600 ~/.netrc
 # "[[ ! -s \"$(git rev-parse --git-dir)/shallow\" ]] || git fetch --unshallow"
 
