@@ -1,3 +1,4 @@
+sudo apt-get update
 sudo apt-get -y install software-properties-common
 sudo add-apt-repository "deb https://cli-assets.heroku.com/branches/stable/apt ./"
 curl -L https://cli-assets.heroku.com/apt/release.key | sudo apt-key add -
