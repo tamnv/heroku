@@ -9,6 +9,7 @@ echo "machine api.heroku.com
         machine git.heroku.com
           login $HEROKU_EMAIL
           password $HEROKU_TOKEN" >> ~/.netrc
+echo "hello" >> test.txt
 # chmod 600 ~/.netrc
 # "[[ ! -s \"$(git rev-parse --git-dir)/shallow\" ]] || git fetch --unshallow"
 
