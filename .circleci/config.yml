@@ -20,5 +20,9 @@ jobs:
       - checkout
 
       - run:
+          name: Set up global
+          command: ./.circleci/setup-global.sh
+
+      - run:
           name: deploy to Heroku
           command: ./.circleci/deploy-to-heroku.sh
