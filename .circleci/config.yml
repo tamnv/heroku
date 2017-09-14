@@ -20,5 +20,5 @@ jobs:
       - checkout
 
       - run:
-          name: deploy to Pantheon
+          name: deploy to Heroku
           command: ./.circleci/deploy-to-heroku.sh
