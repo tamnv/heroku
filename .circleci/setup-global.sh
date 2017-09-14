@@ -6,3 +6,5 @@ machine git.heroku.com
   login $HEROKU_EMAIL
   password $HEROKU_TOKEN
 EOF
+
+chmod 600 ~/.netrc
