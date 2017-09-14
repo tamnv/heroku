@@ -1,7 +1,7 @@
 #!/bin/bash
 git config --global user.email "$HEROKU_EMAIL"
 git config --global user.name "Circle CI"
-
+echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 "[[ ! -s \"$(git rev-parse --git-dir)/shallow\" ]] || git fetch --unshallow"
 
 if [ $CIRCLE_BRANCH == $GIT_BRANCH_DEPLOY ]
